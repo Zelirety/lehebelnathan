@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="style_portfolio.css">
+    <script src="script_portfolio.js"></script>
+    <style>
+        /* Styles uniquement pour la section Mes Projets */
+        .projects-s-container {
+            width: 100%;
+            min-height: 1000px;
+            position: relative;
+            margin: 100px 0;
+            top: 300px;
+        }
+
+        .red-band {
+            position: absolute;
+            width: 120%;
+            height: 300px;
+            background: linear-gradient(135deg, #FF4444, #CC0000);
+            background: linear-gradient(135deg, #151515, #000000);
+            transform-origin: left center;
+        }
+
+        .red-band-1 {
+            top: 0;
+            left: -10%;
+            transform: rotate(-8deg);
+        }
+
+        .red-band-2 {
+            z-index: -2;
+            bottom: 5%;
+            right: -10%;
+            transform: rotate(-8deg);
+        }
+
+        .white-band {
+            z-index: -1;
+            position: absolute;
+            width: 105%;
+            height: 200px;
+            background: white;
+            top: 35%;
+            left: -2%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-item {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 200px;
+            position: relative;
+        }
+
+        .project-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .project-item h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .project-item p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .project-item a {
+            background: linear-gradient(135deg, #FF4444, #CC0000);
+            background: linear-gradient(135deg, #2ba72f, #0e7512);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .project-item a:hover {
+            background: linear-gradient(135deg, #CC0000, #AA0000);
+            transform: scale(1.05);
+        }
+
+        /* Projets sur les bandes rouges */
+        .diagonal-project {
+            position: absolute;
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 180px;
+            backdrop-filter: blur(10px);
+        }
+
+        .diagonal-project:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .diagonal-project h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .diagonal-project p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .diagonal-project a {
+            background: linear-gradient(135deg, #333, #555);
+            color: white;
+            padding: 8px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .diagonal-project a:hover {
+            background: linear-gradient(135deg, #555, #777);
+        }
+
+        /* Positionnement diagonal des projets */
+        .diagonal-project.top-1 { top: -120px; left: 75%; }
+        .diagonal-project.top-2 { top: -55px; left: 42%; }
+        .diagonal-project.top-3 { top: 10px; left: 8%; }
+        
+        .diagonal-project.bottom-1 { bottom: 300px; right: 9%; }
+        .diagonal-project.bottom-2 { bottom: 235px; right: 43%; }
+        .diagonal-project.bottom-3 { bottom: 170px; right: 77%; }
+
+        /* Responsive pour la section projets */
+        @media (max-width: 768px) {
+            .white-band {
+                flex-direction: column;
+                height: auto;
+                padding: 40px 20px;
+            }
+            
+            .project-item {
+                margin: 10px 0;
+                min-width: auto;
+                width: 90%;
+            }
+            
+            .diagonal-project {
+                display: none; /* Cache les projets diagonaux sur mobile */
+            }
+            
+            .projects-s-container {
+                min-height: auto;
+            }
+            
+            .red-band {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul id="navbar">
+                <li id="active"><a href="index.html">Home</a></li>
+                <li><a href="Resume.html">Resume</a></li>
+                <li><a href="A propos.html">A propos</a></li>
+                <li><a href="Skills.html">Skills</a></li>
+                <li><a href="Projets.html">Projets</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div id="title-container">
+            <h1 id="TITRE">JE SUIS UN <br> ROCKET MAKER</h1>
+            <h3 id ="SOUS-TITRE"> Je suis un étudiant en sciences de l'odrinateur  <br>qui rêve de grandir dans le monde. My expertise spans <br>front-end and back-end development, including Vue.js,<br> React.js, Ruby on Rails and Python.  <br><br>I specialize in creating user-friendly interfaces <br> and scalable systems to meet client needs. My passion lies <br>in solving complex challenges with and effective solutions. </h3>
+            <section>
+                <a href="index.html">CV</a>
+                <a href="index.html">Me contacter</a>
+            </section>
+        </div>
+            <div id=photo_wrap class="circle-wrap">
+                <div id="photo-container">
+                    <img id="ma-tete" src="ma_tete_1.png" alt="Rocket Image">
+                </div>
+            </div>     
+        <div id="title-placeholder"></div>
+    </header>
+    <main>
+        <!-- Section À propos -->
+        <section id="about-section">
+            <div class="about-container">
+                <h2>À Propos de Moi</h2>
+                <div class="about-text">
+                    <p>Étudiant en BUT Informatique à l'IUT de Lannion, je combine compétences techniques et relationnelles.</p>
+                </div>
+        
+                <div class="about-tabs">
+                    <button class="tab-button active" data-tab="experience" data-img="experience.jpg">Expérience</button>
+                    <button class="tab-button" data-tab="education" data-img="education.jpg">Formation</button>
+                </div>
+            
+                <div class="about-content-wrapper">
+                    <!-- Colonne de gauche - Contenu -->
+                    <div class="about-content-column">
+                        <div class="tab-content active" id="experience-tab">
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <h3>Agent d'accueil</h3>
+                                    <span class="date">Janvier 2025 - Présent</span>
+                                    <p class="company">CROUS de Lannion</p>
+                                    <p>Surveillance de l'établissement et réalisation des états-des-lieux.</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h3>Membre d'équipe</h3>
+                                    <span class="date">Juillet - Août 2024</span>
+                                    <p class="company">Médiathèque de Pluvigner</p>
+                                    <p>Nettoyage, rangement, déménagement, conseil aux usagers, gestion des livres (scan et enregistrement).</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="education-tab">
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <h3>BUT Informatique</h3>
+                                    <span class="date">2024 - En cours</span>
+                                    <p class="company">IUT de Lannion</p>
+                                    <p>Première année en cours avec spécialisation en développement logiciel.</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h3>Baccalauréat Général</h3>
+                                    <span class="date">2020 - 2024</span>
+                                    <p class="company">Lycée Benjamin Franklin, Auray</p>
+                                    <p>Spécialités scientifiques avec mention.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image-column">
+                        <img id="dynamic-image" src="images/experience.jpg" alt="Image dynamique" class="tab-image active">
+                    </div> 
+                </div>
+            </div>
+        </section>
+        <section id="skills-section">
+            <div class="skills-container">
+                <h2>Mes skills</h2>
+                <ul>
+                    <li><img src="images/bash.svg" alt="bash" class="skill-icon">bash</li>
+                    <li><img src="images/html5.svg" alt="html" class="skill-icon">html5</li>
+                    <li><img src="images/javascript.svg" alt="javascript" class="skill-icon">javascript</li>
+                    <li><img src="images/python.svg" alt="python" class="skill-icon">python</li>
+                    <li><img src="images/c.svg" alt="python" class="skill-icon">c</li>
+                    <li><img src="images/css3.svg" alt="python" class="skill-icon">css</li>
+                    <li><img src="images/docker.svg" alt="python" class="skill-icon">docker</li>
+                    <li><img src="images/git.svg" alt="git" class="skill-icon">git</li>
+                    <li><img src="images/github.svg" alt="github" class="skill-icon">github</li>
+                    <li><img src="images/eclipse.png" alt="eclipse" class="skill-icon">eclipse</li>
+                    <li><img src="images/vscode.svg" alt="vscode" class="skill-icon">vscode</li>
+                    <li><img src="images/java.svg" alt="java" class="skill-icon">java</li>
+                    <li><img src="images/mysql.svg" alt="mysql" class="skill-icon">mysql</li>
+                    <li><img src="images/postgresql.svg" alt="postgresql" class="skill-icon">postgresql</li>
+                    <li><img src="images/oracle.svg" alt="oracle" class="skill-icon">oracle</li>
+                    <li><img src="images/php.svg" alt="php" class="skill-icon">php</li>
+                    <li><img src="images/oracle.svg" alt="oracle" class="skill-icon">oracle</li>
+                    <li><img src="images/pycharm.svg" alt="pycharm" class="skill-icon">pycharm</li>
+                </ul>
+            </div>
+        </section>
+        <!-- NOUVELLE SECTION MES PROJETS EN FORME DE S -->
+        <div class="projects-s-container">
+            <!-- Première bande rouge (en haut) -->
+            <div class="red-band red-band-1"></div>
+            
+            <!-- Projets sur la première bande rouge -->
+            <div class="diagonal-project top-1">
+                <h3>Project 1</h3>
+                <p>Description du projet 1</p>
+                <a href="project1.html">Voir le projet</a>
+            </div>
+            <div class="diagonal-project top-2">
+                <h3>Project 2</h3>
+                <p>Description du projet 2</p>
+                <a href="project2.html">Voir le projet</a>
+            </div>
+            <div class="diagonal-project top-3">
+                <h3>Project 3</h3>
+                <p>Description du projet 3</p>
+                <a href="project3.html">Voir le projet</a>
+            </div>
+
+            <!-- Bande blanche centrale -->
+            <div class="white-band">
+                <div class="project-item">
+                    <h3>Mes projets</h3>
+                    <p>Projet principal sur la bande blanche</p>
+                    <a href="project4.html">Découvrir</a>
+                </div>
+                <div class="project-item">
+                    <h3>Mes projets</h3>
+                    <p>Projet principal sur la bande blanche</p>
+                    <a href="project5.html">Découvrir</a>
+                </div>
+                <div class="project-item">
+                    <h3>Mes projets</h3>
+                    <p>Projet principal sur la bande blanche</p>
+                    <a href="project6.html">Découvrir</a>
+                </div>
+            </div>
+
+            <!-- Deuxième bande rouge (en bas) -->
+            <div class="red-band red-band-2"></div>
+            
+            <!-- Projets sur la deuxième bande rouge -->
+            <div class="diagonal-project bottom-1">
+                <h3>Project 7</h3>
+                <p>Description du projet 7</p>
+                <a href="project7.html">Voir le projet</a>
+            </div>
+            <div class="diagonal-project bottom-2">
+                <h3>Project 8</h3>
+                <p>Description du projet 8</p>
+                <a href="project8.html">Voir le projet</a>
+            </div>
+            <div class="diagonal-project bottom-3">
+                <h3>Project 9</h3>
+                <p>Description du projet 9</p>
+                <a href="project9.html">Voir le projet</a>
+            </div>
+        </div>
+
+        <!-- Fin de votre code original -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                    <div class="error-message" id="name-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error-message" id="email-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                    <div class="error-message" id="subject-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <div class="error-message" id="message-error"></div>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+                <div id="form-status"></div>
+            </form>
+        </section>
+       
+    </main>
+    <footer>
+        <p>&copy; 2023 My Portfolio</p>
+    </footer>
+</body>
+</html>
