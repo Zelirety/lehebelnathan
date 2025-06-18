@@ -37,7 +37,7 @@
         }
 
         .white-band {
-            z-index: -1;
+            z-index: 1;
             position: absolute;
             width: 105%;
             height: 200px;
@@ -52,8 +52,9 @@
         }
 
         .project-item {
-            background: white;
+            background: black;
             border-radius: 15px;
+            color: white;
             padding: 30px;
             margin: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -69,13 +70,13 @@
         }
 
         .project-item h3 {
-            color: #333;
+            color: white;
             margin-bottom: 15px;
             font-size: 24px;
         }
 
         .project-item p {
-            color: #666;
+            color: #fffdfd;
             margin-bottom: 20px;
             line-height: 1.6;
         }
@@ -92,7 +93,7 @@
         }
 
         .project-item a:hover {
-            background: linear-gradient(135deg, #CC0000, #AA0000);
+            background: linear-gradient(135deg, #228c25, #0a600d);
             transform: scale(1.05);
         }
 
@@ -178,21 +179,36 @@
         }
     </style>
 </head>
+
+<div id="project-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2 id="modal-title">Project Title</h2>
+        <div id="modal-description"></div>
+        <img id="modal-image" src="" alt="Project Image">
+        <div class="modal-technologies">
+            <h3>Technologies utilisées:</h3>
+            <ul id="modal-tech-list"></ul>
+        </div>
+        <a href="#" id="modal-project-link" class="modal-link">Voir le projet</a>
+        <a href="#" id="modal-code-link" class="modal-link">Voir le code</a>
+    </div>
+</div>
 <body>
-    <header>
-        <nav>
+    <header id ="home">
+        <nav id="resume" >
             <ul id="navbar">
-                <li id="active"><a href="index.html">Home</a></li>
-                <li><a href="Resume.html">Resume</a></li>
-                <li><a href="A propos.html">A propos</a></li>
-                <li><a href="Skills.html">Skills</a></li>
-                <li><a href="Projets.html">Projets</a></li>
-                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#apropos">A propos</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
         <div id="title-container">
-            <h1 id="TITRE">JE SUIS UN <br> ROCKET MAKER</h1>
-            <h3 id ="SOUS-TITRE"> Je suis un étudiant en sciences de l'odrinateur  <br>qui rêve de grandir dans le monde. My expertise spans <br>front-end and back-end development, including Vue.js,<br> React.js, Ruby on Rails and Python.  <br><br>I specialize in creating user-friendly interfaces <br> and scalable systems to meet client needs. My passion lies <br>in solving complex challenges with and effective solutions. </h3>
+            <h1 id="TITRE">LE HEBEL <br> NATHAN</h1>
+            <h3 id ="SOUS-TITRE"> Je suis un étudiant en sciences de l'ordinateur  <br>qui rêve de grandir dans le monde. Je me spécialise <br>dans le dévellopement d'application, front et back, incluant<br>Java, C, Python, et bien d'autres...  <br><br>Particulièrement, mes applications sont garantes d'une éxperience agréable et pratique pour l'utilisateur. Selon le besoin de mon client, mon large éventail de capacités me permet une adaptation fluide, ce qui me permet de résoudre des challenges complexes avec des solutions efficaces </h3>
             <section>
                 <a href="index.html">CV</a>
                 <a href="index.html">Me contacter</a>
@@ -208,7 +224,7 @@
     <main>
         <!-- Section À propos -->
         <section id="about-section">
-            <div class="about-container">
+            <div class="about-container" id="apropos">
                 <h2>À Propos de Moi</h2>
                 <div class="about-text">
                     <p>Étudiant en BUT Informatique à l'IUT de Lannion, je combine compétences techniques et relationnelles.</p>
@@ -264,7 +280,7 @@
         </section>
         <section id="skills-section">
             <div class="skills-container">
-                <h2>Mes skills</h2>
+                <h2 id="skills">Mes skills</h2>
                 <ul>
                     <li><img src="images/bash.svg" alt="bash" class="skill-icon">bash</li>
                     <li><img src="images/html5.svg" alt="html" class="skill-icon">html5</li>
@@ -288,73 +304,72 @@
             </div>
         </section>
         <!-- NOUVELLE SECTION MES PROJETS EN FORME DE S -->
-        <div class="projects-s-container">
+        <div class="projects-s-container"  id="projets">
             <!-- Première bande rouge (en haut) -->
             <div class="red-band red-band-1"></div>
             
             <!-- Projets sur la première bande rouge -->
             <div class="diagonal-project top-1">
-                <h3>Project 1</h3>
-                <p>Description du projet 1</p>
+                <h3>Jeu de snake</h3>
+                <p></p>
                 <a href="project1.html">Voir le projet</a>
             </div>
             <div class="diagonal-project top-2">
-                <h3>Project 2</h3>
-                <p>Description du projet 2</p>
+                <h3>Application Java</h3>
+                <p></p>
                 <a href="project2.html">Voir le projet</a>
             </div>
             <div class="diagonal-project top-3">
-                <h3>Project 3</h3>
-                <p>Description du projet 3</p>
+                <h3>Site JO</h3>
+                <p></p>
                 <a href="project3.html">Voir le projet</a>
             </div>
 
             <!-- Bande blanche centrale -->
             <div class="white-band">
                 <div class="project-item">
-                    <h3>Mes projets</h3>
-                    <p>Projet principal sur la bande blanche</p>
+                    <h3>Docker</h3>
+                    <p></p>
                     <a href="project4.html">Découvrir</a>
                 </div>
                 <div class="project-item">
-                    <h3>Mes projets</h3>
-                    <p>Projet principal sur la bande blanche</p>
+                    <h3>Base de données</h3>
+                    <p></p>
                     <a href="project5.html">Découvrir</a>
                 </div>
                 <div class="project-item">
-                    <h3>Mes projets</h3>
-                    <p>Projet principal sur la bande blanche</p>
+                    <h3>IA</h3>
+                    <p></p>
                     <a href="project6.html">Découvrir</a>
                 </div>
             </div>
 
-            <!-- Deuxième bande rouge (en bas) -->
             <div class="red-band red-band-2"></div>
             
             <!-- Projets sur la deuxième bande rouge -->
             <div class="diagonal-project bottom-1">
-                <h3>Project 7</h3>
-                <p>Description du projet 7</p>
+                <h3>Conduite de projet</h3>
+                <p></p>
                 <a href="project7.html">Voir le projet</a>
             </div>
             <div class="diagonal-project bottom-2">
-                <h3>Project 8</h3>
-                <p>Description du projet 8</p>
+                <h3>Installation réseau</h3>
+                <p></p>
                 <a href="project8.html">Voir le projet</a>
             </div>
             <div class="diagonal-project bottom-3">
-                <h3>Project 9</h3>
-                <p>Description du projet 9</p>
+                <h3>Jeux vidéos</h3>
+                <p></p>
                 <a href="project9.html">Voir le projet</a>
             </div>
         </div>
 
         <!-- Fin de votre code original -->
         <section id="contact">
-            <h2>Contact Me</h2>
+            <h2>Contacte moi</h2>
             <form id="contact-form" class="contact-form">
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">Nom</label>
                     <input type="text" id="name" name="name" required>
                     <div class="error-message" id="name-error"></div>
                 </div>
@@ -366,7 +381,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="subject">Subject</label>
+                    <label for="subject">Sujet</label>
                     <input type="text" id="subject" name="subject" required>
                     <div class="error-message" id="subject-error"></div>
                 </div>
@@ -377,14 +392,14 @@
                     <div class="error-message" id="message-error"></div>
                 </div>
                 
-                <button type="submit" class="submit-btn">Send Message</button>
+                <button type="submit" class="submit-btn">Envoyer</button>
                 <div id="form-status"></div>
             </form>
         </section>
        
     </main>
     <footer>
-        <p>&copy; 2023 My Portfolio</p>
+        <p>&copy; 18/06/2025 ------------------- LE HEBEL Nathan ------------------- Portfolio personel</p>
     </footer>
 </body>
 </html>

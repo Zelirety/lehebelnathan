@@ -557,3 +557,115 @@ footer {
     background-color: #fce8e8;
 }
 
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+    width: 60%;
+    max-width: 700px;
+    position: relative;
+}
+
+@keyframes modalopen {
+    from {opacity: 0; transform: translateY(-50px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+#modal-title {
+    color: #2ba72f;
+    margin-bottom: 20px;
+}
+
+#modal-description {
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.modal-technologies {
+    margin-bottom: 25px;
+}
+
+.modal-technologies h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#modal-tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+#modal-tech-list li {
+    background: #2ba72f;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.modal-link {
+    display: inline-block;
+    background: linear-gradient(135deg, #2ba72f, #0e7512);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+}
+
+.modal-link:hover {
+    background: linear-gradient( #0e7512, #0a5a0e);
+    transform: translateY(-2px);
+}
+
+/* Responsive modal */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 85%;
+        margin: 20% auto;
+        padding: 20px;
+    }
+    
+    .modal-link {
+        display: block;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+}
+
